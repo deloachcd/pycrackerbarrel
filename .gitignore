@@ -1,0 +1,3 @@
+build_sequences.py
+*.pyc
+__pycache__
