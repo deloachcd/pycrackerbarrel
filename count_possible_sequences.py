@@ -3,7 +3,7 @@ from borderprint.borderprint import bordered_print
 
 global_count = [ 0 for i in range(15) ] # global variable
 
-def get_jump_sequences(triangle: CrackerBarrelTriangle):
+def get_jump_sequences(triangle:CrackerBarrelTriangle):
     global global_count
 
     jumps_possible = False
@@ -18,7 +18,7 @@ def get_jump_sequences(triangle: CrackerBarrelTriangle):
         global_count[triangle.get_num_pegs()-1] += 1
         print(global_count)
 
-def main():
+if __name__ == '__main__':
     # setup
     initial_peg_removals = [(0,0),(1,0),(2,0),(2,1)]
     initial_triangles = [ CrackerBarrelTriangle(remove_peg=peg)
@@ -51,5 +51,3 @@ def main():
             .format(int((final_result[2]/final_result_sum)*100)))
     print('{}% chance of leaving 4 or more pegs'
             .format(int((sum(final_result[3:])/final_result_sum)*100)))
-
-main()
