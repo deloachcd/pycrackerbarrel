@@ -1,5 +1,5 @@
 from CrackerBarrelTriangle import CrackerBarrelTriangle
-from borderprint import bordered_print
+from borderprint.borderprint import bordered_print
 
 global_count = [ 0 for i in range(15) ] # global variable
 
