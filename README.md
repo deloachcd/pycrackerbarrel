@@ -1,5 +1,7 @@
 # pycrackerbarrel
 
+![cracker barrel boys](https://github.com/deloachcd/pycrackerbarrel/blob/master/images/cracker_barrel_boys.png?raw=tru://raw.githubusercontent.com/deloachcd/pycrackerbarrel/master/images/cracker_barrel_boys.png)
+
 ## What the hell is this?
 This repository hosts python code designed to provide an answer
 to one of the greatest questions ever asked by humanity in our time
@@ -27,3 +29,7 @@ the `CrackerBarrelTriangle` class, with Python's built-in `unittest` module.
 Simply run:
 `python3 -m unittest TestCrackerBarrelTriangle.py`
 and you can run a set of unit tests on the code.
+
+## Where did that sexy art on this README come from?
+Art was shamelessly ripped off from Joe Whitt,
+[here](http://obligatorymorningfart.tumblr.com/image/144269156464)
