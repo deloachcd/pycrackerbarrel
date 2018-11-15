@@ -1,8 +1,9 @@
 from CrackerBarrelTriangle import CrackerBarrelTriangle
+from borderprint import bordered_print
 
 global_count = [ 0 for i in range(15) ] # global variable
 
-def get_jump_sequences(triangle):
+def get_jump_sequences(triangle: CrackerBarrelTriangle):
     global global_count
 
     jumps_possible = False
@@ -30,21 +31,18 @@ def main():
     # reporting of results
     final_result = global_count
     final_result_sum = sum(final_result)
-    print(".--------------.")
-    print('| FINAL RESULT |')
-    print("'--------------'")
+
+    bordered_print('FINAL RESULT')
     print('There are {} possible outcomes of that game on the counter in Cracker Barrel.'
             .format(final_result_sum))
-    print(".----------------------------------.")
-    print('| OUTCOMES BY FINAL NUMBER OF PEGS |')
-    print("'----------------------------------'")
+
+    bordered_print('OUTCOMES BY FINAL NUMBER OF PEGS')
     print('{} possible sequences leave 1 peg'.format(final_result[0]))
     print('{} possible sequences leave 2 pegs'.format(final_result[1]))
     print('{} possible sequences leave 3 pegs'.format(final_result[2]))
     print('{} possible sequences leave 4 or more pegs'.format(sum(final_result[3:])))
-    print(".---------------------------------------------------.")
-    print('| CHANCES OF LEAVING N PEGS (assuming random jumps) |')
-    print("'---------------------------------------------------'")
+
+    bordered_print('CHANCES OF LEAVING N PEGS (assuming random jumps)')
     print('{}% chance of leaving 1 peg'
             .format(int((final_result[0]/final_result_sum)*100)))
     print('{}% chance of leaving 2 pegs'

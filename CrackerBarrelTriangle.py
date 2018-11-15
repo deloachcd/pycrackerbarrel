@@ -21,7 +21,7 @@ class CrackerBarrelTriangle:
     ''' Class to represent one of those triangles with pegs that you
         find in cracker barrel restaurants. '''
 
-    def __init__(self, **kwargs):
+    def __init__(self,**kwargs):
         ''' "1" specifies peg, while "0" specifies hole '''
         self.internal_representation = np.array([[1],
                                                  [1,1],
@@ -33,7 +33,7 @@ class CrackerBarrelTriangle:
             if not position_in_triangle(*r):
                 raise Exception("Invalid hole specified for initial peg removal")
             else:
-                self.internal_representation[r[0]][r[1]] = 0
+                self.remove_peg(*r)
 
     def get_hole_locations(self):
         holes = []
@@ -53,7 +53,7 @@ class CrackerBarrelTriangle:
                 possible_directions.append(direction)
         return possible_directions
 
-    def jump_pegs(self, source_hole, direction):
+    def jump_pegs(self,source_hole:tuple,direction:str):
         jump_positions = peg_positions[direction](*source_hole)
         jumped_peg,jumping_peg = jump_positions[0], jump_positions[1]
         if (position_in_triangle(*source_hole) and

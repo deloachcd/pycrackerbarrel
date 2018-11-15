@@ -8,8 +8,11 @@ on Earth:
 *"How many ways are there to solve that game on the table at Cracker Barrel?"*
 
 ## How the hell do I run this?
-Open up your favorite command line interface or python (3.5+) interpreter,
-and run:
+This program requires the popular `numpy` package to run, as the triangle
+itself is represented internally as numpy's `array` type.
+
+Once you are sure numpy is installed, open up your favorite command line
+interface or graphical python (3.5+) interpreter, and run:
 
 `python3 count_possible_sequences.py`
 
