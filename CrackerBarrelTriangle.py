@@ -1,5 +1,6 @@
 import numpy as np
 from copy import deepcopy
+import textwrap
 
 # Simple function for determining if location is within triangle
 position_in_triangle = lambda i,j: (j <= i and i < 5 and j < 5
@@ -49,7 +50,8 @@ class CrackerBarrelTriangle:
             relative_positions = positions(i,j)
             p1,p2 = relative_positions[0],relative_positions[1]
             if (position_in_triangle(*p1) and position_in_triangle(*p2)
-                    and self.peg_present(*p1) and self.peg_present(*p2)):
+                    and self.peg_present(*p1) and self.peg_present(*p2)
+                    and not self.peg_present(i,j)):
                 possible_directions.append(direction)
         return possible_directions
 
@@ -93,13 +95,19 @@ class CrackerBarrelTriangle:
         return 15 - len(self.get_hole_locations())
 
     def __str__(self):
-        rep_str = ''
-        for i,row in enumerate(self.internal_representation):
-            for peg in row:
-                rep_str += str(peg)
-            if i < 4:
-                rep_str += '\n'
-        return rep_str
+        str_entries = []
+        for row in self.internal_representation:
+            for val in row:
+                str_entries.append('T' if val == 1 else '.')
+
+        return textwrap.dedent("""\
+                                        /^\\
+                                       / {} \\
+                                      / {} {} \\
+                                     / {} {} {} \\
+                                    / {} {} {} {} \\
+                                   / {} {} {} {} {} \\
+                                  '-------------'""".format(*str_entries))
 
     def __repr__(self):
         rep_str = 'Triangle('
