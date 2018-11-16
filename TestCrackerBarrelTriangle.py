@@ -45,33 +45,54 @@ class TestCrackerBarrelTriangle(unittest.TestCase):
                 self.assertIn(returned_direction, expected_directions)
 
         t = CrackerBarrelTriangle()
+        
+        # Make sure we don't return jumps possible
+        # if we have a peg in hole_location
+        self.assertEqual(t.get_possible_jumps(0,0),[])
 
+        # Directional validity checks
+        t.remove_peg(0,0)
         returned_directions = t.get_possible_jumps(0,0)
         expected_directions = ['down', 'diagonal_down_right']
         assertDirectionsEqual()
+        t.place_peg(0,0)
         
+        t.remove_peg(2,0)
         returned_directions = t.get_possible_jumps(2,0)
         expected_directions = ['down', 'up', 'right', 'diagonal_down_right']
         assertDirectionsEqual()
+        t.place_peg(2,0)
 
-
+        t.remove_peg(2,2)
         returned_directions = t.get_possible_jumps(2,2)
         expected_directions = ['left', 'diagonal_down_left', 'down',
                                'diagonal_down_right', 'diagonal_up_left']
         assertDirectionsEqual()
+        t.place_peg(2,2)
 
+        t.remove_peg(4,0)
         returned_directions = t.get_possible_jumps(4,0)
         expected_directions = ['up', 'diagonal_up_right', 'right']
         assertDirectionsEqual()
+        t.place_peg(4,0)
 
+        t.remove_peg(4,4)
         returned_directions = t.get_possible_jumps(4,4)
         expected_directions = ['diagonal_up_left', 'left']
         assertDirectionsEqual()
+        t.place_peg(4,4)
 
+        # Set up for next two tests
+        t.remove_peg(0,0)
+
+        # Check to make sure no jumps possible if no
+        # pegs within 1-peg distance of hole
         t.remove_peg(1,0)
         t.remove_peg(1,1)
         self.assertEqual(t.get_possible_jumps(0,0),[])
 
+        # Check to make sure no jumps possible if no
+        # pegs within 2-peg distance of hole
         t.place_peg(1,0)
         t.remove_peg(2,0)
         self.assertEqual(t.get_possible_jumps(0,0),[])
