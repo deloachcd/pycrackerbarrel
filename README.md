@@ -2,13 +2,13 @@
 
 ![cracker barrel boys](https://github.com/deloachcd/pycrackerbarrel/blob/master/images/cracker_barrel_boys.png?raw=tru://raw.githubusercontent.com/deloachcd/pycrackerbarrel/master/images/cracker_barrel_boys.png)
 
-## What the hell is this?
+## What is this?
 This repository hosts python code written to provide an answer
 to one of the greatest questions humanity has ever asked:
 
 *"How many ways are there to solve that game on the table at Cracker Barrel?"*
 
-## How the hell do I run this?
+## How do I run this?
 The primary component of this program requires the popular `numpy` package to
 run, so make sure that's installed.
 
@@ -25,7 +25,7 @@ The main program takes around 15 minutes to execute on the developer's laptop,
 though this time may vary based on the processing power available for the
 program to utilize.
 
-## How the hell do I know these numbers are correct?
+## How do I know these numbers are correct?
 Tests can be run on the primary unique component utilized in the main program,
 the `CrackerBarrelTriangle` class, with Python's built-in `unittest` module.
 
